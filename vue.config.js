@@ -1,5 +1,23 @@
 
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
-  productionSourceMap: false, // 不产生map文件
+
+  // 不产生map文件
+  productionSourceMap: false,
+
+  css: {
+    loaderOptions: {
+      stylus: {
+        'resolve url': true,
+        'import': []
+      }
+    }
+  },
+
+  pluginOptions: {
+    'cube-ui': {
+      postCompile: false,
+      theme: false
+    }
+  }
 }
