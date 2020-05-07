@@ -17,19 +17,18 @@ export default {
       live2dShow: false
     }
   },
-  mounted () {
-    this.loadModel()
-    this.$nextTick(() => {
-      // this.loadEvent()
-      this.$refs.live2d.style.height = 'calc(100vh - 213px)'
-      this.live2dShow = true
-    })
-  },
   methods: {
     loadModel () {
-      const url = `https://www.feizhouxianyu.cn/Terisa/model2.json`
+      const url = `https://www.feizhouxianyu.cn/Terisa/model.json`
       const callback = console.log('Live2D Ready')
       window.loadlive2d('live2d-main', url, callback)
+      this.$nextTick(() => {
+      this.$refs.live2d.style.height = 'calc(100vh - 223px)'
+      this.$refs.live2d.style.paddingTop = `calc(223px / 2)`
+      setTimeout(() => {
+        this.live2dShow = true
+      }, 500)
+    })
     }
   }
 }
